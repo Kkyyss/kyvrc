@@ -183,7 +183,10 @@ EOF
         command! -bang QA qa<bang>
         command! -bang Qa qa<bang>
     endif
-
+    nnoremap ,gd :!git diff %<CR>
+    nnoremap ,gl :!git log %<CR>
+    nnoremap ,gb :!git blame %<CR>
+    nnoremap ,pyf :!pyflakes %<CR>
 
 
 "
