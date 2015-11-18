@@ -18,8 +18,15 @@
     Plugin 'jiangmiao/auto-pairs' 
 
     Plugin 'Valloric/YouCompleteMe'
+    "alternative https://github.com/klen/python-mode
     let g:ycm_autoclose_preview_window_after_completion=1
     map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    
+
+    "Plugin 'klen/python-mode'
+    "let g:pymode_rope_goto_definition_bind = "<C-]>"
+    "let g:pymode_run_bind = "<C-S-e>"
+
 
     Plugin 'nvie/vim-flake8'
     let python_highlight_all=1
@@ -38,8 +45,11 @@
     let NERDTreeShowHidden=1
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swp$', '\.git']
 
+
     Plugin 'jmcantrell/vim-virtualenv'
     Plugin 'jistr/vim-nerdtree-tabs'
+    let g:nerdtree_tabs_open_on_console_startup=1
+    
     Plugin 'kien/ctrlp.vim'
     let g:ctrlp_map = '<c-t>'
 
@@ -150,7 +160,7 @@
 
 
 "python with virtualenv support
-py << EOF
+python << EOF
 import os
 import sys
 if 'VIRTUAL_ENV' in os.environ:
@@ -170,6 +180,10 @@ EOF
     vnoremap <S-Down> j
     vnoremap <S-Left> h
     vnoremap <S-Right> l
+    
+
+    nnoremap <C-J> :tabprevious<CR>
+    nnoremap <C-K> :tabnext<CR>
 
     " Stupid shift key fixes
     if has("user_commands")
@@ -186,9 +200,6 @@ EOF
     nnoremap ,gd :!git diff %<CR>
     nnoremap ,gl :!git log %<CR>
     nnoremap ,gb :!git blame %<CR>
-    nnoremap ,pyf :!pyflakes %<CR>
-
-
 "
 
 
