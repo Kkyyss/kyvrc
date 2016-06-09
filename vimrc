@@ -17,7 +17,7 @@
 
     Plugin 'jiangmiao/auto-pairs' 
 
-    Plugin 'Valloric/YouCompleteMe'
+    "Plugin 'Valloric/YouCompleteMe'
     "alternative https://github.com/klen/python-mode
     let g:ycm_autoclose_preview_window_after_completion=1
     map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -75,7 +75,17 @@
     Plugin 'mattn/emmet-vim'
     let g:user_emmet_leader_key='<C-Q>'
 
+    Plugin 'scrooloose/syntastic'
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
 
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+    let g:syntastic_javascript_checkers = ['eslint']
+    let g:syntastic_javascript_eslint_exec = 'eslint_d'
     " All of your Plugins must be added before the following line
     call vundle#end()
 "
@@ -203,4 +213,25 @@ EOF
 "
 
 
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+" Cut, Paste, Copy
+nnoremap <C-x> Vd
+inoremap <C-x> <Esc>Vdi
+nnoremap <C-v> p
+inoremap <C-v> <Esc>pi
+nnoremap <C-c> y
+
+" Undo, Redo (broken)
+"nnoremap <C-z>  u
+"inoremap <C-z>  <Esc>ui
 
